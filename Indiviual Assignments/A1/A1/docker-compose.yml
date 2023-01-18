@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  app1:
+    image: ruhi47/app1
+    volumes:
+      - .:/etc/data:rw
+    ports:
+      - "5000:5000"
+    depends_on:
+      - app2
+    container_name: app1
+
+  app2:
+    image: ruhi47/app2
+    volumes:
+      - .:/etc/data:rw
+    ports:
+      - "5001:5001"
+    container_name: app2
